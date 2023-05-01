@@ -36,7 +36,7 @@ def generate_monthly_schedule(year, month):
         else:
             return ["st", "nd", "rd"][day % 10 - 1]
     
-    column_labels = [start_date.replace(day=i).strftime('%A %-d') + day_suffix(i) for i in range(1, num_days + 1)]
+    column_labels = [start_date.replace(day=i).strftime('%A %d') + day_suffix(i) for i in range(1, num_days + 1)]
     df = pd.DataFrame(index=time_slots, columns=column_labels)
 
     return df

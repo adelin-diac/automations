@@ -11,9 +11,18 @@ def generate_monthly_schedule(year, month):
     num_days = (end_date - start_date).days
 
     time_slots = pd.date_range(start_date.replace(hour=6, minute=30), start_date.replace(hour=6, minute=0) + timedelta(days=1), freq='30min').strftime('%H:%M')
-    df = pd.DataFrame(index=time_slots, columns=np.arange(1, num_days + 1))
+    
+    def day_suffix(day):
+        if 4 <= day <= 20 or 24 <= day <= 30:
+            return "th"
+        else:
+            return ["st", "nd", "rd"][day % 10 - 1]
+    
+    column_labels = [start_date.replace(day=i).strftime('%A %d') + day_suffix(i) for i in range(1, num_days + 1)]
+    df = pd.DataFrame(index=time_slots, columns=column_labels)
 
     return df
+
 
 # Create a new Excel workbook and add a worksheet for each month
 year = 2023

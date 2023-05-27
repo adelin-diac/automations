@@ -10,6 +10,8 @@
 
 This BAT script is designed to simplify the process of starting a Python app in a virtual environment. When executed, the script opens a command prompt window and activates the virtual environment, it downloads any dependancies, and then it runs the app/script.
 
+You can then copy the `.bat` file to an easy location to access, and you can start your python app with a double-click.
+
 ### Pre-requisites
 
 - Python

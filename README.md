@@ -2,7 +2,13 @@
 
 List of scripts for automating some of the stuff I do.
 
-**Last Update:** 01 May 2023
+**Last Update:** 27 May 2023
+
+**TODO:**
+
+- Move the detailed descriptions of each script into it's own folder
+
+- Only keep basic explanation of what it does here
 
 ## Quick Links
 

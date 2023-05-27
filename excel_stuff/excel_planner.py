@@ -3,6 +3,7 @@ import numpy as np
 from datetime import datetime, timedelta
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
+import os
 
 def generate_monthly_schedule(year, month):
     """
@@ -56,5 +57,11 @@ for month in range(1, 13):
     for r in dataframe_to_rows(df_month, index=True, header=True):
         ws.append(r)
 
+# Get the current working directory
+current_dir = os.getcwd()
+
 # Save the Excel workbook
-wb.save(f'excel_stuff/{year}_{output_file}')
+if os.path.basename(current_dir) == 'excel_stuff':
+    wb.save(f'{year}_{output_file}')
+else:
+    wb.save(os.path.join('excel_stuff', f'/{year}_{output_file}'))

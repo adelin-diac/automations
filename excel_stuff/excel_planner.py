@@ -20,7 +20,7 @@ def generate_monthly_schedule(year, month):
     end_date = datetime(year, month + 1, 1) if month != 12 else datetime(year + 1, 1, 1)
     num_days = (end_date - start_date).days
 
-    time_slots = pd.date_range(start_date.replace(hour=6, minute=30), start_date.replace(hour=6, minute=0) + timedelta(days=1), freq='30min').strftime('%H:%M')
+    time_slots = pd.date_range(start_date.replace(hour=4, minute=0), start_date.replace(hour=4, minute=0) + timedelta(days=1), freq='30min').strftime('%H:%M')
     
     def day_suffix(day):
         """
@@ -60,6 +60,7 @@ for month in range(1, 13):
 # Get the current working directory
 current_dir = os.getcwd()
 
+print("Saving the Excel workbook...")
 # Save the Excel workbook
 if os.path.basename(current_dir) == 'excel_stuff':
     wb.save(f'{year}_{output_file}')

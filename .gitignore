@@ -22,3 +22,7 @@ job_tracker/output/*
 # IDE
 .vscode/
 .idea/
+
+# others
+boxnote_to_md/
+strimzi_test/
